@@ -11,7 +11,7 @@
 int execute(char *content, stack_t **stack, unsigned int line_no, FILE *file)
 {
 instruction_t opst[] = {{"push", f_push}, {"pall", f_pall}, {"pint", f_pint},
-{"pop", f_pop}, {NULL, NULL}};
+{"pop", f_pop}, {"swap", f_swap}, {NULL, NULL}};
 char *com = NULL;
 int i = 0;
 com = strtok(content, " \n\t");

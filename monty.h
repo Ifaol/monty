@@ -57,4 +57,5 @@ int execute(char *content, stack_t **stack, unsigned int line_no, FILE *file);
 int check_string(char *com_arg);
 void f_pint(stack_t **head, unsigned int counter);
 void f_pop(stack_t **stack, unsigned int line_no);
+void f_swap(stack_t **head, unsigned int counter);
 #endif
