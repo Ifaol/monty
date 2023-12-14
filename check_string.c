@@ -7,12 +7,16 @@
  */
 int check_string(char *com_arg)
 {
-int i;
+int i, c = 0;
 if (com_arg == NULL)
 {
 return (0);
 }
-for (i = 0 ; com_arg[i] != '\0' ; i++)
+if (com_arg[0] == '-')
+{
+c = 1;
+}
+for (i = c ; com_arg[i] != '\0' ; i++)
 {
 if (!isdigit(com_arg[i]))
 {
