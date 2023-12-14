@@ -28,9 +28,9 @@ bus.file = file;
 while (fgets(content, sizeof(content), file) != NULL)
 {
 line_number++;
-execute(content, &stack, line_number, file);
+execute(content, &stack, line_number, bus.file);
 }
-fclose(file);
+fclose(bus.file);
 free_stack(stack);
 return (0);
 }
