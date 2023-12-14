@@ -41,10 +41,14 @@ new_stack->next = *stack;
  */
 void f_pall(stack_t **stack, unsigned int line_number)
 {
-if (line_number > 0)
+if (line_number >= 1)
 {
 stack_t *current = NULL;
 current = *stack;
+if (current == NULL)
+{
+return;
+}
 while (current != NULL)
 {
 printf("%d\n", current->n);
