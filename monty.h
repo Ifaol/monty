@@ -55,4 +55,5 @@ void f_pall(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *stack);
 int execute(char *content, stack_t **stack, unsigned int line_no, FILE *file);
 int check_string(char *com_arg);
+void f_pint(stack_t **head, unsigned int counter);
 #endif

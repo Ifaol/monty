@@ -10,7 +10,7 @@
  */
 int execute(char *content, stack_t **stack, unsigned int line_no, FILE *file)
 {
-instruction_t opst[] = {{"push", f_push}, {"pall", f_pall}, {NULL, NULL}};
+instruction_t opst[] = {{"push", f_push}, {"pall", f_pall}, {"pint", f_pint}, {NULL, NULL}};
 char *com = NULL;
 int i = 0;
 com = strtok(content, " \n\t");
