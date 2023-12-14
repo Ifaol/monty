@@ -1,6 +1,6 @@
 #ifndef MONTY_H
 #define MONTY_H
-#define MAX_LINE_LENGTH 2048
+#define MAX_LINE_LENGTH 10000
 #include <stdio.h>
 #include <stddef.h>
 #include <stdlib.h>
