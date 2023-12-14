@@ -17,7 +17,7 @@ len++;
 }
 if (len < 2)
 {
-fprintf(stderr, "L%u: can't swap, stack too short", counter);
+fprintf(stderr, "L%u: can't swap, stack too short\n", counter);
 fclose(bus.file);
 free_stack(*head);
 exit(EXIT_FAILURE);
