@@ -58,4 +58,5 @@ int check_string(char *com_arg);
 void f_pint(stack_t **head, unsigned int counter);
 void f_pop(stack_t **stack, unsigned int line_no);
 void f_swap(stack_t **head, unsigned int counter);
+void f_add(stack_t **head, unsigned int counter);
 #endif
