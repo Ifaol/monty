@@ -14,7 +14,7 @@ return (0);
 }
 for (i = 0 ; com_arg[i] != '\0' ; i++)
 {
-if (isdigit(com_arg[i] == 0))
+if (!isdigit(com_arg[i]))
 {
 return (0);
 }
