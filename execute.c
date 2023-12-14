@@ -13,7 +13,7 @@ int execute(char *content, stack_t **stack, unsigned int line_no, FILE *file)
 instruction_t opst[] = {{"push", f_push}, {"pall", f_pall}, {NULL, NULL}};
 char *com = NULL;
 int i = 0;
-com = strtok(content, " \n\t;|&'\"`(){}><");
+com = strtok(content, " \n\t");
 if (com != NULL)
 {
 if (com[0] == '#')
@@ -22,7 +22,7 @@ return (0);
 }
 else
 {
-bus.arg = strtok(NULL, " \n\t;|&'\"`(){}><");
+bus.arg = strtok(NULL, " \n\t");
 bus.content = content;
 while (opst[i].opcode)
 {
