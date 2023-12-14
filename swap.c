@@ -22,7 +22,8 @@ fclose(bus.file);
 free_stack(*head);
 exit(EXIT_FAILURE);
 }
-value = (*head)->n;
-(*head)->n = (*head)->next->n;
-(*head)->next->n = value;
+temp = *head;
+value = temp->n;
+temp->n = temp->next->n;
+temp->next->n = value;
 }
