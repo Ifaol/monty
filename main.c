@@ -32,5 +32,6 @@ execute(content, &stack, line_number, bus.file);
 }
 fclose(bus.file);
 free_stack(stack);
+stack = NULL;
 return (0);
 }
