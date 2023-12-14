@@ -24,6 +24,14 @@ else
 com_arg = strtok(NULL, " \n\t");
 if (strcmp(com, "push") == 0)
 {
+c = check_string(com_arg);
+if (c == 0)
+{
+fprintf(stderr, "L%u: usage: push integer", line_no);
+fclose(file);
+free_stack(*stack);
+exit(EXIT_FAILURE);
+}
 n = atoi(com_arg);
 push(stack, n, line_no);
 }

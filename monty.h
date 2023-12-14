@@ -5,6 +5,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -37,4 +38,5 @@ void push(stack_t **stack, int value, unsigned int line_number);
 void pall(stack_t *stack);
 void free_stack(stack_t *stack);
 int execute(char *content, stack_t **stack, unsigned int line_no, FILE *file);
+int check_string(char *com_arg);
 #endif
