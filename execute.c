@@ -1,12 +1,12 @@
 #include "monty.h"
- /**
- * execute - executes the opcode
- * @stack: head linked list - stack
- * @content: line_counter
- * @file: poiner to monty file
- * @line_no: line counter
+/**
+ *execute- a function zt executes opcodes
+ *@content: line content
+ *@stack:head linked list - stack
+ *@line_no: line counter
+ *@file: poiner to monty file
  *
- * Return: no return
+ *Return: 0 for and 1 else
  */
 int execute(char *content, stack_t **stack, unsigned int line_no, FILE *file)
 {
@@ -32,11 +32,8 @@ fclose(file);
 free_stack(*stack);
 exit(EXIT_FAILURE);
 }
-else
-{
 n = atoi(com_arg);
 push(stack, n, line_no);
-}
 }
 else if (strcmp(com, "pall") == 0)
 {
