@@ -10,9 +10,7 @@ int main(int argc, char *argv[])
 {
 stack_t *stack = NULL;
 unsigned int line_number = 0;
-char *content = NULL;
-size_t size = 0;
-ssize_t read_line = 1;
+char content[MAX_LINE_LENGTH];
 FILE *file = NULL;
 if (argc != 2)
 {
@@ -25,18 +23,15 @@ if (file == NULL)
 fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 exit(EXIT_FAILURE);
 }
-while (read_line > 0)
+while (fgets(content, sizeof(content), file) != NULL)
 {
-content = NULL;
+printf("from main.c %s\n", content);
 line_number++;
-read_line = getline(&content, &size, file);
-if (read_line > 0)
-{
+printf("from main.c %u\n", line_number);
 execute(content, &stack, line_number, file);
 }
-free(content);
-}
+printf("End of while loop in main.c\n");
 fclose(file);
-free_stack(*stack);
+free_stack(stack);
 return (0);
 }
