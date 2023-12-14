@@ -25,12 +25,9 @@ exit(EXIT_FAILURE);
 }
 while (fgets(content, sizeof(content), file) != NULL)
 {
-printf("from main.c %s\n", content);
 line_number++;
-printf("from main.c %u\n", line_number);
 execute(content, &stack, line_number, file);
 }
-printf("End of while loop in main.c\n");
 fclose(file);
 free_stack(stack);
 return (0);
