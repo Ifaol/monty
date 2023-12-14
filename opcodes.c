@@ -15,7 +15,10 @@ if (n == 0)
 {
 fprintf(stderr, "L%u: usage: push integer\n", line_no);
 fclose(bus.file);
+if (line_no > 1)
+{
 free_stack(*stack);
+}
 exit(EXIT_FAILURE);
 }
 else
@@ -25,6 +28,11 @@ new_stack = (stack_t *)malloc(sizeof(stack_t));
 if (new_stack == NULL)
 {
 fprintf(stderr, "Error: malloc failed");
+fclose(bus.file);
+if (line_no > 1)
+{
+free_stack(*stack);
+}
 exit(EXIT_FAILURE);
 }
 new_stack->n = value;
