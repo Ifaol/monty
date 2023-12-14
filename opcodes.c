@@ -61,10 +61,11 @@ current = current->next;
 void free_stack(stack_t *stack)
 {
 stack_t *temp = NULL;
+temp = stack;
 while (stack != NULL)
 {
-temp = stack;
-stack = stack->next;
-free(temp);
+temp = stack->next;
+free(stack);
+stack = temp;
 }
 }
