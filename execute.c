@@ -36,7 +36,7 @@ i++;
 if (opst[i].opcode == NULL)
 {
 fprintf(stderr, "L%u: unknown instruction %s\n", line_no, com);
-fclose(bus.file);
+fclose(file);
 free_stack(*stack);
 exit(EXIT_FAILURE);
 }
