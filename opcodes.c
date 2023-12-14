@@ -1,17 +1,26 @@
 #include "monty.h"
 /**
- *push - pushes a data to stack
+ *f_push - pushes a data to stack
  *@stack: stack_t data structure input
- *@value: int value to be added
- *@line_number: line number of opcode
+ *@line_no: line number of opcode
  *
  *Return: void
  */
-void push(stack_t **stack, int value, unsigned int line_number)
+void f_push(stack_t **stack, unsigned int line_no)
 {
 stack_t *new_stack = NULL;
-if (value || value == 0)
+int value, n = 0;
+n = check_string(bus.arg);
+if (n == 0)
 {
+fprintf(stderr, "L%u: usage: push integer\n", line_no);
+fclose(bus.file);
+free_stack(*stack);
+exit(EXIT_FAILURE);
+}
+else
+{
+value = atoi(bus.arg);
 new_stack = (stack_t *)malloc(sizeof(stack_t));
 if (new_stack == NULL)
 {
@@ -22,26 +31,25 @@ new_stack->n = value;
 new_stack->next = *stack;
 *stack = new_stack;
 }
-else
-{
-fprintf(stderr, "L%u: usage: push integer\n", line_number);
-exit(EXIT_FAILURE);
-}
 }
 /**
- *pall - prints stack data
+ *f_pall - prints stack data
  *@stack: dtack_t pointer input
+ *@line_number: line counter
  *
  *Return: void
  */
-void pall(stack_t *stack)
+void f_pall(stack_t **stack, unsigned int line_number)
+{
+if (line_number > 0)
 {
 stack_t *current = NULL;
-current = stack;
+current = *stack;
 while (current != NULL)
 {
 printf("%d\n", current->n);
 current = current->next;
+}
 }
 }
 /**

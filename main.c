@@ -1,4 +1,5 @@
 #include "monty.h"
+bus_t bus = {NULL, NULL, NULL, 0};
 /**
  *main - a function that executes opcode
  *@argc: no of args intered
@@ -23,6 +24,7 @@ if (file == NULL)
 fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 exit(EXIT_FAILURE);
 }
+bus.file = file;
 while (fgets(content, sizeof(content), file) != NULL)
 {
 line_number++;

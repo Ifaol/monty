@@ -10,8 +10,9 @@
  */
 int execute(char *content, stack_t **stack, unsigned int line_no, FILE *file)
 {
-char *com = NULL, *com_arg = NULL;
-int n, c = 0;
+instruction_t opst[] = {{"push", f_push}, {"pall", f_pall}, {NULL, NULL}};
+char *com = NULL;
+int i = 0;
 com = strtok(content, " \n\t");
 if (com != NULL)
 {
@@ -21,25 +22,18 @@ return (0);
 }
 else
 {
-com_arg = strtok(NULL, " \n\t");
-if (strcmp(com, "push") == 0)
+bus.arg = strtok(NULL, " \n\t");
+bus.content = content;
+while (opst[i].opcode)
 {
-c = check_string(com_arg);
-if (c == 0)
+if (strcmp(com, opst[i].opcode) == 0)
 {
-fprintf(stderr, "L%u: usage: push integer\n", line_no);
-fclose(file);
-free_stack(*stack);
-exit(EXIT_FAILURE);
+opst[i].f(stack, line_no);
+return (0);
 }
-n = atoi(com_arg);
-push(stack, n, line_no);
+i++;
 }
-else if (strcmp(com, "pall") == 0)
-{
-pall(*stack);
-}
-else
+if (opst[i].opcode == NULL)
 {
 fprintf(stderr, "L%d: unknown instruction %s\n", line_no, com);
 fclose(file);
