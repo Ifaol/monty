@@ -12,7 +12,7 @@ stack_t *prev = NULL;
 stack_t *current = *head;
 stack_t *next = NULL;
 (void) counter;
-if (current == NULL)
+if (current == NULL || current->next == NULL)
 return;
 while (current != NULL)
 {
